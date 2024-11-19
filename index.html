@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dress Shop Order Form</title>
+    <style>
+        /* General Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            background-image: url(./imges/dress5.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+       
+    .animated-heading {
+        font-family: 'Georgia', serif; /* Change font */
+        color: #ffffff; /* Initial color */
+        animation: colorChange 3s infinite, fadeIn 1s ease-out; /* Color change and fade-in animation */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes colorChange {
+        0%, 100% {
+            color: #111010;
+        }
+        50% {
+            color: #ff6347; /* Tomato color in the middle */
+        }
+    }
+
+
+        h1 {
+            text-align: center;
+            color: #253791;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #253791;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(206, 212, 218, 0.6); /* Semi-transparent border */
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent input background */
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: rgba(108, 99, 255, 0.8); /* Semi-transparent purple border on focus */
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(108, 99, 255, 0.8); /* Semi-transparent purple */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: rgba(87, 75, 205, 0.8); /* Darker purple on hover */
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        /* Styling the order summary table */
+        .order-summary {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Semi-transparent border */
+        }
+
+        th {
+            background-color: rgba(37, 55, 145, 0.8); /* Semi-transparent navy blue */
+            color: #ffffff;
+        }
+
+        td {
+            color: #495057;
+        }
+
+
+        
+
+
+    /* Button Styling */
+    .animated-button {
+        width: 100%;
+        padding: 12px;
+        background-color: rgba(108, 99, 255, 0.9); /* Semi-transparent purple */
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .animated-button:hover {
+        background-color: rgba(87, 75, 205, 0.9); /* Darker purple on hover */
+        transform: scale(1.1); /* Scale up the button on hover */
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    }
+
+    .animated-button:active {
+        transform: scale(1); /* Return to original size when clicked */
+        background-color: rgba(108, 99, 255, 1); /* Solid purple when clicked */
+    }
+
+    /* Smooth hover and active button animation */
+    @keyframes buttonHoverEffect {
+        0% {
+            transform: scale(1);
+            box-shadow: none;
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: none;
+        }
+    }
+
+    .animated-button:hover {
+        animation: buttonHoverEffect 0.5s ease-in-out;
+    }
+
+
+        #output {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #253791;
+        }
+    </style>
+</head>
+<body>
+    <form id="dressShopForm">
+        <h1 class="animated-heading">Dress Shop Order Form</h1>
+
+        <!-- Customer Details -->
+        <h3>Customer Details</h3>
+        <label for="customerName">Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
+
+        <label for="customerEmail">Email:</label>
+        <input type="email" id="customerEmail" name="customerEmail" required>
+
+        <label for="customerPhone">Phone:</label>
+        <input type="tel" id="customerPhone" name="customerPhone" required>
+
+        <!-- Dress Selection -->
+        <h3>Dress Selection</h3>
+        <label for="dress">Select Dress:</label>
+        <select id="dress" name="dress">
+            <option value="summerDress">Summer Dress - $500.00</option>
+            <option value="eveningGown">Evening Gown - $700.00</option>
+            <option value="cocktailDress">Cocktail Dress - $800.00</option>
+            <option value="maxiDress">Maxi Dress - $1000.00</option>
+            <option value="partyDress">Party Dress - $1500.00</option>
+        </select>
+
+        <label for="size">Select Size:</label>
+        <select id="size" name="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="extraLarge">Extra Large</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <!-- Submit Button -->
+        <button class="animated-button" type="button" onclick="submit_Order()">Submit Order</button>
+    </form>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+        <h3 id="output"></h3>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td id="username"></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td id="email"></td>
+            </tr>
+            <tr>
+                <th>Phone:</th>
+                <td id="phone"></td>
+            </tr>
+            <tr>
+                <th>Dress:</th>
+                <td id="dressSummary"></td>
+            </tr>
+            <tr>
+                <th>Size:</th>
+                <td id="sizeSummary"></td>
+            </tr>
+            <tr>
+                <th>Quantity:</th>
+                <td id="quantitySummary"></td>
+            </tr>
+            <tr>
+                <th>GST:</th>
+                <td id="GST"></td>
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td id="PRICE"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function submit_Order() {
+            // Fetch values from form inputs
+            var username = document.getElementById('customerName').value;
+            var email = document.getElementById('customerEmail').value;
+            var phone = document.getElementById('customerPhone').value;
+            var dress = document.getElementById('dress').value;
+            var size = document.getElementById('size').value;
+            var quantity = parseInt(document.getElementById('quantity').value);
+
+            // Check if any required field is empty
+            if (!username || !email || !phone || !dress || !size || isNaN(quantity)) {
+                alert("Please fill in all fields.");
+                return;
+            }
+             
+
+            // Price calculation based on the dress selection
+            var pricePerUnit;
+            if (dress === "summerDress") {
+                pricePerUnit = 500;
+            } else if (dress === "eveningGown") {
+                pricePerUnit = 700;
+            } else if (dress === "cocktailDress") {
+                pricePerUnit = 800;
+            } else if (dress === "maxiDress") {
+                pricePerUnit = 1000;
+            } else if (dress === "partyDress") {
+                pricePerUnit = 1500;
+            }
+
+            var total = pricePerUnit * quantity;
+            var gstAmount = total * 0.10; // GST at 10%
+            var totalWithGST = total + gstAmount;
+
+            // Update the order summary table
+            document.getElementById('output').innerHTML = 'Hi ' + username + ', your bill is here:'; document.getElementById('output').style.opacity = 0; document.getElementById('output').style.transition = "opacity 0.5s"; setTimeout(() => document.getElementById('output').style.opacity = 1, 100);
+
+            document.getElementById('username').innerText = username;
+            document.getElementById('email').innerText = email;
+            document.getElementById('phone').innerText = phone;
+            document.getElementById('dressSummary').innerText = dress;
+            document.getElementById('sizeSummary').innerText = size;
+            document.getElementById('quantitySummary').innerText = quantity;
+            document.getElementById('GST').innerText = gstAmount.toFixed(2);
+            document.getElementById('PRICE').innerText = totalWithGST.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+
